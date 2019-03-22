@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>User{{user.id}}: {{ user.username }}</h1>
+    <hr>
+    <h2>Lifts offered</h2>
+    {% for lift in lifts %}
+    <p>
+     At: <b>{{ lift.date }}</b> from <b>{{ lift.start_loc }}</b> to <b>{{lift.end_loc}}</b>
+    </p>
+    <p>
+     <b>{{lift.seats}}</b> seats left
+    </p>
+    <a href="{{ url_for('delete_lift', lift_id = lift.id, username=current_user.username) }}">Delete</a>
+    {% endfor %}
+    <hr>
+    <h2>Lifts claimed</h2>
+    {% for lift in morelifts %}
+    <p>
+     At: <b>{{ lift.date }}</b> from <b>{{ lift.start_loc }}</b> to <b>{{lift.end_loc}}</b> with <b>{{lift.driver.username}}</b>
+    </p>
+    {% endfor %}
+
+{% endblock %}

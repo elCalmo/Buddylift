@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Cheers, {{ current_user.username }}!</h1>
+    {% for lift in lifts %}
+    <div><p>At: <b>{{ lift.date }}</b> From: <b>{{ lift.start_loc }}</b> To: <b>{{lift.end_loc}}</b> With: <b>{{lift.driver.username}}</b></p>
+     <p>Seats available: <b>{{lift.seats}}</b></p><a href="{{ url_for('lift_details', lift_id = lift.id) }}">Details</a></div>
+    {% endfor %}
+{% endblock %}

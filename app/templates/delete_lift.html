@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Lift: {{ lift.id }}</h1>
+<hr>
+<div>
+    <p>{{ lift.date }} Fahrt: <b>{{ lift.start_loc }}</b> nach <b>{{lift.end_loc}}</b></p>
+    <form action="" method="post" novalidate>
+        {{ form.hidden_tag() }}
+        <p>{{ form.submit() }}</p>
+    </form>
+    {% endblock %}
